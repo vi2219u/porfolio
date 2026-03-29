@@ -79,42 +79,41 @@ export function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Visual Element (Asymmetric) */}
+          {/* Visual Element (Square Portrait) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative h-[500px] w-full hidden lg:block"
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative flex justify-center lg:justify-end order-first lg:order-last"
           >
             <motion.div 
-              animate={{ rotate: [1, 0, 1] }}
+              animate={{ y: [0, -10, 0] }}
               transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-              className="absolute top-0 right-10 aspect-square h-full bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl border border-white/10 backdrop-blur-sm p-2 shadow-2xl"
+              className="relative w-full max-w-[450px] aspect-square bg-gradient-to-br from-primary/10 to-accent/10 border border-white/10 backdrop-blur-sm p-3 shadow-2xl group"
             >
-              <div className="w-full h-full relative rounded-2xl overflow-hidden">
+              <div className="w-full h-full relative overflow-hidden">
                 <Image 
                   src="/vidvath-portrait.png" 
                   alt="Vidvath Perumandla" 
                   fill 
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 450px"
                   priority
                 />
               </div>
-            </motion.div>
-            {/* Floating Card */}
-            <motion.div 
-              animate={{ y: [0, -20, 0], rotate: [0, -2, 2, 0] }}
-              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-              className="absolute top-1/4 -left-10 bg-background/80 backdrop-blur-md p-6 rounded-2xl border border-muted/30 shadow-xl"
-            >
-              <div className="flex items-center gap-4 mb-3">
-                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold shadow-[0_0_15px_rgba(6,182,212,0.5)]">AI</div>
-                <div>
-                  <h3 className="font-semibold text-sm text-foreground">AI & Python</h3>
-                  <p className="text-xs text-primary font-medium">Prompt Engineering</p>
+              
+              {/* Floating Badge */}
+              <motion.div 
+                animate={{ y: [0, -10, 0] }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                className="absolute -bottom-6 -left-6 bg-background/80 backdrop-blur-md p-4 rounded-2xl border border-primary/20 shadow-xl hidden md:block"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">AI</div>
+                  <span className="text-sm font-semibold">AIML Specialist</span>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           </motion.div>
 
