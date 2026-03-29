@@ -3,13 +3,14 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
+import Link from "next/link";
 
 const projects = [
   {
     title: "Weather Dashboard API",
     description: "A fast, responsive weather dashboard built with React that interfaces with real-time meteorological APIs via Open-Meteo, featuring dynamic layouts and glassmorphism.",
     tech: ["Next.js", "Tailwind CSS", "Open-Meteo API", "Framer Motion"],
-    codeLink: "#",
+    codeLink: "https://github.com/vi2219u/porfolio/tree/main/src/app/weather",
     liveLink: "/weather",
     gradient: "from-blue-500/20 to-sky-500/20",
     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80"
@@ -18,7 +19,7 @@ const projects = [
     title: "TaskMaster Pro",
     description: "A beautifully animated task management application built to help students track assignments, leveraging local storage and Framer Motion for fluidity.",
     tech: ["Next.js", "TypeScript", "Framer Motion"],
-    codeLink: "#",
+    codeLink: "https://github.com/vi2219u/porfolio/tree/main/src/app/taskmaster",
     liveLink: "/taskmaster",
     gradient: "from-indigo-500/20 to-purple-500/20",
     image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80"
@@ -82,9 +83,9 @@ export function Projects() {
                 </div>
                 
                 <h3 className="text-3xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                  <a href={project.liveLink} className="before:absolute before:inset-0 before:z-[15]">
+                  <Link href={project.liveLink} className="before:absolute before:inset-0 before:z-[15]">
                     {project.title}
-                  </a>
+                  </Link>
                 </h3>
                 
                 <div className="p-8 rounded-2xl bg-background/80 backdrop-blur-2xl border border-white/10 dark:border-white/5 shadow-2xl relative z-10 -ml-0 lg:-ml-12 group-hover:-translate-y-3 transition-all duration-500 group-hover:shadow-[0_20px_40px_-15px_rgba(6,182,212,0.3)]">
@@ -102,19 +103,22 @@ export function Projects() {
                 </div>
                 
                 <div className="flex items-center gap-6 pt-4 relative z-20">
-                  <motion.a 
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    href={project.liveLink} 
-                    className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors group/link"
-                  >
-                    Live Demo 
-                    <ExternalLink size={16} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
-                  </motion.a>
+                  <Link href={project.liveLink} passHref legacyBehavior>
+                    <motion.a 
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors group/link"
+                    >
+                      Live Demo 
+                      <ExternalLink size={16} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+                    </motion.a>
+                  </Link>
                   <motion.a 
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                     href={project.codeLink} 
+                    target="_blank"
+                    rel="noopener noreferrer" 
                     className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors group/link"
                   >
                     Source Code 
