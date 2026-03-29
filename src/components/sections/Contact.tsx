@@ -96,10 +96,18 @@ export function Contact() {
                 <Phone size={16} className="text-accent" />
                 <span className="text-sm font-medium">+91 9392593728</span>
               </div>
-              <div className="flex items-center gap-2 text-foreground/80 bg-background/50 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 dark:border-white/5 shadow-sm hover:border-primary/50 transition-colors">
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                onClick={() => {
+                  navigator.clipboard.writeText("p.vidvath2005@gmail.com");
+                  alert("Email copied to clipboard!");
+                }}
+                className="flex items-center gap-2 text-foreground/80 bg-background/50 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 dark:border-white/5 shadow-sm hover:border-primary/50 transition-colors"
+                title="Click to copy email"
+              >
                 <Mail size={16} className="text-primary" />
                 <span className="text-sm font-medium">p.vidvath2005@gmail.com</span>
-              </div>
+              </motion.button>
             </motion.div>
           </div>
 
