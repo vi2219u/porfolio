@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import portraitPic from "../../../public/vidvath-portrait.png";
 
 export function Hero() {
   return (
@@ -94,7 +95,7 @@ export function Hero() {
             >
               <div className="w-full h-full relative overflow-hidden">
                 <Image 
-                  src="/vidvath-portrait.png" 
+                  src={portraitPic} 
                   alt="Vidvath Perumandla" 
                   fill 
                   className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
